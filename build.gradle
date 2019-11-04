@@ -1,0 +1,33 @@
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '2.0.2'
+}
+
+group 'codechallange'
+version '1.0'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile group: 'com.google.guava', name: 'guava', version: '23.0'
+    compile group: 'com.opencsv', name: 'opencsv', version: '4.1'
+    compile group: 'joda-time', name: 'joda-time', version: '2.9.4'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'com.codechallange.TransactionAnalyserMain'
+    }
+}
+
+shadowJar {
+    zip64 true
+    baseName = 'TransactionAnalyser'
+}
+
+build.dependsOn(shadowJar)
