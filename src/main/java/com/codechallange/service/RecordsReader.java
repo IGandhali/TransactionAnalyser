@@ -30,7 +30,7 @@ public class RecordsReader {
                 .withSkipLines(1)
                 .build();
         try {
-            Map<String, Transaction> map = new HashMap<String, Transaction>();
+            Map<String, Transaction> map = new HashMap<>();
             for (String[] row : csvReader) {
                 populateMap(map, row);
             }

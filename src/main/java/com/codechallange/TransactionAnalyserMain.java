@@ -28,7 +28,8 @@ public class TransactionAnalyserMain {
         } else {
             System.out.println("Enter csv file location (absolute Path) ");
             String filePath = sc.nextLine();
-            TransactionAnalyser analyser = new TransactionAnalyser( new RecordsReader(filePath, merchantName, dateTo, dateFrom),new StatGenerator());
+
+            TransactionAnalyser analyser = new TransactionAnalyser(new RecordsReader(filePath, merchantName, dateTo, dateFrom), new StatGenerator());
             OutputStats outputStats = analyser.analyse();
             System.out.println(outputStats);
         }

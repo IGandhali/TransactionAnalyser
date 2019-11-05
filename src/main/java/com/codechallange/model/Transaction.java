@@ -20,28 +20,12 @@ public class Transaction {
         this.type = type;
     }
 
-    public DateTime getDateTime() {
-        return dateTime;
-    }
-
     public double getAmount() {
         return amount;
     }
 
-    public String getMerchant() {
-        return merchant;
-    }
-
-    public String getReverseTransactionId() {
-        return reverseTransactionId;
-    }
-
     public static Transaction normalTransaction(String id, DateTime dateTime, double amount, String merchant) {
         return new Transaction(id, dateTime, amount, merchant, Type.PAYMENT, null);
-    }
-
-    public static Transaction normalTransaction(String id, DateTime dateTime, double amount, String merchant, String reverseTransactionId) {
-        return new Transaction(id, dateTime, amount, merchant, Type.REVERSAL, reverseTransactionId);
     }
 
     public enum Type {
